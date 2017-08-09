@@ -1,0 +1,28 @@
+.TH CAESAR 1
+.SH NAME
+caesar \- Encrypt or decrypt a caesar cipher
+.SH SYNOPSIS
+.B caesar [-ed] [-fts] [parameter]
+.SH DESCRIPTION
+caeser is a simple tool to encrypt or decrypt a string (or text in a file) with a caesar cipher
+.SH OPTIONS
+.TP
+.BR \-d 
+Decrypt the provided text
+.TP
+.BR \-e 
+Encrypt the provided text
+.TP
+.BR \-s
+Pass the number of letters the cipher must shift to encrypt or decrypt. The default is 10. 
+.TP
+.BR \-t
+Pass the text to be converted as a commandline parameter wrapped in quotes.
+.TP
+.BR \-f
+Path to the file containing the text to be converted.
+.SH SEE ALSO
+.SH BUGS
+No known bugs
+.SH AUTHOR
+Aksel Ethem (aksel.ethem@gmail.com)

@@ -10,7 +10,6 @@ char * crypting(char input[], int encrypt, int shift) {
     char *crypted;
     
     crypted = malloc(length+1);
-    printf("Shift: %d\n", shift);
     int i;
     for(i=0; i < length; i++) {
         if (encrypt == 1) {
