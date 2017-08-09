@@ -5,36 +5,24 @@
 #include <unistd.h>
 
 
-char * encrypting(char input[]) {
+char * crypting(char input[], int encrypt) {
     int length = strlen(input);
-    char *encrypted;
+    char *crypted;
     
-    encrypted = malloc(length+1);
+    crypted = malloc(length+1);
 
     int i;
     for(i=0; i < length; i++) {
-        encrypted[i] = input[i] + 10;
+        if (encrypt == 1) {
+            crypted[i] = input[i] + 10;
+        } else {
+            crypted[i] = input[i] - 10;
+        }
     }
 
-    encrypted[length] = '\0';
-    return encrypted;
+    crypted[length] = '\0';
+    return crypted;
 }
-
-
-char * decrypting(char input[]) {
-    int length = strlen(input);
-    char *decrypted;
-    
-    decrypted = malloc(length+1);
-
-    int i;
-    for(i=0; i < length; i++) {
-        decrypted[i] = input[i] - 10;
-    }
-
-    decrypted[length] = '\0';
-    return decrypted;
-}   
 
 
 int main(int argc, char **argv) {
@@ -89,12 +77,12 @@ int main(int argc, char **argv) {
 
     if (tvalue) {
         if (dflag) {
-            char *result = decrypting(tvalue);
+            char *result = crypting(tvalue, 0);
             printf("%s\n", result);
         }
 
         if (eflag) {
-            char *result = encrypting(tvalue);
+            char *result = crypting(tvalue, 1);
             printf("%s\n", result);
         }
         return 0;
